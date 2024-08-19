@@ -114,12 +114,20 @@ tbody tr:nth-child(odd) {
     background-color: rgb(243, 243, 243);
 }
 
+.selectedRows:nth-child(odd) {
+    background-color: #cde5ff;
+}
+
+.selectedRows:nth-child(even) {
+    background-color: #d6eaff;
+}
+
 tr {
     text-align: center;
 }
 
 #rawPDF tbody tr:hover {
-    background-color: rgb(182, 220, 255);
+    background-color: rgb(236, 225, 255);
     cursor: pointer;
 }
 

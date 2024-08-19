@@ -17,7 +17,7 @@ function processarPDF() {
 
             data.forEach(kart => {
                 tbody += `
-                    <tr>
+                    <tr class="checkRow">
                         <td>${kart.pos}</td>
                         <td>${kart.kart}</td>
                         <td style="text-align: left;">${kart.nome}</td>
@@ -27,6 +27,7 @@ function processarPDF() {
                 `;
             const table = document.querySelector('#rawPDF');
             table.querySelector('tbody').innerHTML = tbody;
+            setupCheckRow()
             });
         })
     }
@@ -40,4 +41,18 @@ function getFileName() {
     } else {
         document.querySelector('#fileLabel').textContent = 'Escolha o arquivo';
     }
+}
+
+function setupCheckRow() {
+    const rows = document.querySelectorAll('.checkRow')
+    rows.forEach((item) => {
+        item.addEventListener('click', (e) => {
+            if (!item.classList.contains('selectedRows')) {
+                e.target.parentNode.classList.add('selectedRows')
+            } else {
+                e.target.parentNode.classList.remove('selectedRows')
+            }
+
+           })
+    })
 }
