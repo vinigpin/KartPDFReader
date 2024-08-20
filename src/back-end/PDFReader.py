@@ -7,9 +7,18 @@ def readPDF(path):
         text = page.extract_text()
         row = text.split('\n')
 
-        json = []
+        json = {
+            "corrida":"",
+            "classificacao":[
 
+            ]
+        }
+
+        pageCont = 0
         for i in row:
+            pageCont += 1
+            if pageCont == 2:
+                json['corrida'] = ' '.join(i.split(' ')[2:-1])
             try:
                 int(i.split(' ')[0])
             except:
@@ -56,7 +65,5 @@ def readPDF(path):
                         nomeFormatado = nome.split(' ')[0] + ' ' + nome.split(' ')[-1]
                 else:
                     nomeFormatado = nome.split(' ')[0]
-
-                json.append({"pos":pos, "kart":kart, "nome":nomeFormatado, "mv":mv, "tmv":tmv})
-
+                json['classificacao'].append({"pos":pos, "kart":kart, "nome":nomeFormatado, "mv":mv, "tmv":tmv})
     return json
