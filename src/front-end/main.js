@@ -20,7 +20,7 @@ function processarPDF() {
         const formData = new FormData();
         formData.append('file', pdf);
 
-        fetch('http://localhost:5400/readPDF', {
+        fetch('http://192.168.202.176:5400/readPDF', {
             method: 'POST',
             body: formData
         })
