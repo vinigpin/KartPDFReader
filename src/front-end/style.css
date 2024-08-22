@@ -126,7 +126,6 @@ tr {
 }
 
 #rawPDF tbody tr:hover {
-    background-color: rgb(255, 241, 237);
     cursor: pointer;
 }
 #rawPDF tbody tr:active {

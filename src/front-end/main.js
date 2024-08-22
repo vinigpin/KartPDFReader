@@ -19,7 +19,6 @@ function processarPDF() {
         
         const formData = new FormData();
         formData.append('file', pdf);
-
         fetch('https://36449db0-9f0c-498d-ae95-b7fb0a6c54a7-00-2f9m5nd63rsr9.janeway.replit.dev/readPDF', {
             method: 'POST',
             body: formData
